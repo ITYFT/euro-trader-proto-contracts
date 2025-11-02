@@ -23,4 +23,5 @@ message EuroTraderGetAutoLoginUrlResponse {
 
 service EuroTraderService {
     rpc GetAutoLoginUrl(EuroTraderGetAutoLoginUrlRequest) returns (EuroTraderGetAutoLoginUrlResponse);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
