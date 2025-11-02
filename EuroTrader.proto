@@ -1,13 +1,24 @@
 syntax = "proto3";
 package euro_trader;
 
+enum EuroTraderGrpcErrorCode {
+    CaptchaError = 0;
+    AuthenticationError = 1;
+}
+
+message EuroTraderGrpcError {
+    EuroTraderGrpcErrorCode ErrorCode = 1;
+    optional string Message = 2;
+}
+
 message EuroTraderGetAutoLoginUrlRequest {
     string TelegramId = 1;
     string Password = 2;
 }
 
 message EuroTraderGetAutoLoginUrlResponse {
-    string AutoLoginUrl = 1;
+    optional string AutoLoginUrl = 1;
+    repeated EuroTraderGrpcError Errors = 2;
 }
 
 service EuroTraderService {
