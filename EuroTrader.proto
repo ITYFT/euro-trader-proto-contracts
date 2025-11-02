@@ -1,0 +1,15 @@
+syntax = "proto3";
+package euro_trader;
+
+message EuroTraderGetAutoLoginUrlRequest {
+    string TelegramId = 1;
+    string Password = 2;
+}
+
+message EuroTraderGetAutoLoginUrlResponse {
+    string AutoLoginUrl = 1;
+}
+
+service EuroTraderService {
+    rpc GetAutoLoginUrl(EuroTraderGetAutoLoginUrlRequest) returns (EuroTraderGetAutoLoginUrlResponse);
+}
